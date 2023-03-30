@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="student_page" name="school_student">
+        <t t-call="website.layout">
+            <div class="container">
+                aree Vhai Bissah koren..
+                <h1 class="text-center">Student Information</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <t t-foreach="Students" t-as="pat">
+                            <tr>
+                                <td>
+                                    <t t-esc="pat.name"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.email"/>
+                                </td>
+                                <td>
+                                    <t t-esc="pat.phone"/>
+                                </td>
+
+
+                            </tr>
+
+                        </t>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </t>
+    </template>
+
+
+    <template id="add_new_student" name="Add New Patient">
+        <t t-call="website.layout">
+            <div class="container">
+                <form action="/my_form" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name"/>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email"/>
+                    <label for="age">Age</label>
+                    <input type="age" name="age"/>
+                    <input type="submit" value="Submit"/>
+                </form>
+            </div>
+        </t>
+    </template>
+
+</odoo>

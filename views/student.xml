@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="aaa" name="Aaa">
+
+            <t t-call="website.layout">
+                School
+                <t t-foreach="Students" t-as="pat">
+                    <t t-esc="pat.Students_name"/>
+                </t>
+            </t>
+    </template>
+    <data>
+            <!-- Tree View -->
+        <record id="my_model_name_tree_view" model="ir.ui.view">
+            <field name="name">school.student.tree.view</field>
+            <field name="model">school.student</field>
+            <field name="priority" eval="7" />
+            <field name="arch" type="xml">
+                <tree string="My Model Names">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="birth_date"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form View -->
+        <record id="my_model_name_form_view" model="ir.ui.view">
+            <field name="name">school.student.form.view</field>
+            <field name="model">school.student</field>
+            <field name="priority" eval="7"/>
+            <field name="arch" type="xml">
+                <form string="Model Name">
+
+                    <sheet>
+                        <group name="section_name" string="Section Name">
+                            <group>
+                                <field name="name"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                            </group>
+                            <group>
+                                <field name="birth_date"/>
+                                <field name="gender" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <!-- Action -->
+        <record id="open_view_student_action" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="res_model">school.student</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="my_model_name_tree_view"/>
+        </record>
+
+
+    </data>
+</odoo>

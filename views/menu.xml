@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Main Menu -->
+        <menuitem name="Student"
+            id="menu_root"
+            sequence="1" />
+
+        <!-- Menu -->
+        <menuitem name="Student Menu"
+            id="menu_action_menu_student"
+            parent="aaa_school.menu_root"
+            action="open_view_student_action"
+            sequence="2" />
+
+
+        <!-- teachers menu-->
+        <menuitem name="Teacher Menu"
+            id="menu_action_menu_teacher"
+            parent="aaa_school.menu_root"
+            action="open_view_teacher_action"
+            sequence="3" />
+
+
+<!--        &lt;!&ndash; section menu&ndash;&gt;-->
+<!--        <menuitem name="Section Menu"-->
+<!--            id="menu_action_menu_section"-->
+<!--            parent="aaa_school.menu_root"-->
+<!--            action="open_view_section_action"-->
+<!--            sequence="4" />-->
+
+
+
+
+
+
+    </data>
+</odoo>
